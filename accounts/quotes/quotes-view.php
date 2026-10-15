@@ -20,7 +20,7 @@ class page_output
 	var $obj_form_quote;
 
 
-	function page_output()
+	function __construct()
 	{
 		// fetch quote ID
 		$this->id = @security_script_input('/^[0-9]*$/', $_GET["id"]);

@@ -225,7 +225,7 @@ class ledger_account_list
 
 		Constructor Function
 	*/
-	function ledger_account_list()
+	function __construct()
 	{
 		// init the table object
 		$this->obj_table = New table;
