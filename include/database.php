@@ -6,6 +6,9 @@
 */
 
 
+// PHP 8.1 changed MySQLi's default to throwing exceptions for errors. Keep the
+// application's established false-return/error-checking behavior consistent.
+mysqli_report(MYSQLI_REPORT_OFF);
 
 if ($config["instance"] == "hosted")
 {

@@ -14,7 +14,7 @@ class page_output
 	var $email_template_array = array();
 	var $obj_sql_invoice_data = array();
 
-	function page_output()
+	function __construct()
 	{
 		// define page dependencies
 		$this->requires["css"][]		= "include/admin/css/templates.css";

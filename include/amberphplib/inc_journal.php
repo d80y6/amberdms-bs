@@ -29,7 +29,7 @@ class journal_base
 
 		Class Contructor
 	*/
-	function journal_base()
+	function __construct()
 	{
 		// init the SQL structure
 		$this->sql_obj = New sql_query;	
@@ -292,30 +292,16 @@ class journal_base
 	{
 		log_debug("journal_base", "Executing prepare_set_content(content)");
 
-		// make sure we perform quoting, since we will be insert
-		// these text strings into the database
-		if (get_magic_quotes_gpc() == 0)
-		{
-			$this->structure["content"] = addslashes($content);
-		}
-		else
-		{
-			$this->structure["content"] = $content;
-		}
+		// PHP 8 removed magic quotes, so escape request text before SQL insertion.
+		$this->structure["content"] = addslashes($content);
 	}
 
 	function prepare_set_title($title)
 	{
 		log_debug("journal_base", "Executing prepare_set_title($title)");
 
-		if (get_magic_quotes_gpc() == 0)
-		{
-			$this->structure["title"] = addslashes($title);
-		}
-		else
-		{
-			$this->structure["title"] = $title;
-		}
+		// PHP 8 removed magic quotes, so escape request text before SQL insertion.
+		$this->structure["title"] = addslashes($title);
 		
 	}
 	
@@ -935,7 +921,7 @@ class journal_input extends journal_base
 
 		Class Contructor
 	*/
-	function journal_input()
+	function __construct()
 	{
 		// init the form object
 		$this->form_obj = New form_input;
@@ -1352,7 +1338,7 @@ class journal_process extends journal_base
 
 		Class Contructor
 	*/
-	function journal_process()
+	function __construct()
 	{
 		// sql query
 		$this->sql_obj = New sql_query;	

@@ -20,7 +20,7 @@ class page_output
 	var $obj_form_invoice;
 
 
-	function page_output()
+	function __construct()
 	{
 		$this->requires["javascript"][]		= "include/accounts/javascript/invoice-export.js";
 		

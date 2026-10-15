@@ -2251,7 +2251,7 @@ class cdr_csv
 	var $csv_body_fields;		//
 
 
-	function cdr_csv($options = false) {
+	function __construct($options = false) {
 		$this->required_params 	= array('id_customer', 'id_service_customer', 'period_start', 'period_end');
 		$this->csv_body_fields  = array('code_customer', 'number_src', 'number_dst', 'date_date', 'date_time', 'billable_seconds', 'price', 'qualifier');
 
@@ -2435,7 +2435,9 @@ class cdr_csv
 							$csv_row[$k] = str_pad($row[$k], 9, "0", STR_PAD_LEFT);
 							break;
 						case 'price':
-							$csv_row[$k] = trim(money_format('%=0^!#5.4i', $row[$k]));
+							// money_format() was removed in PHP 8; the legacy format emitted a
+							// plain decimal value without a currency symbol or grouping.
+							$csv_row[$k] = number_format((float)$row[$k], 4, '.', '');
 							break;
 
 						default;

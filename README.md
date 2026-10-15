@@ -46,7 +46,12 @@ more targeted to your country's requirements) for the accounting.
 * And much, much more... [check out the latest release notes](https://projects.jethrocarr.com/p/oss-amberdms-bs/source/tree/HEAD/trunk/help/docs/RELEASE_NOTES)
 
 
-## Getting Started
+## PHP runtime
+
+The application and Docker image target PHP 8.3. The container is based on
+`php:8.3-apache` and enables the MySQLi/PDO MySQL, GD, cURL, and ZIP
+extensions used by the application. SimpleXML is included with the PHP runtime. MySQL or MariaDB is still required as the
+database server; the removed PHP `mysql` extension is not used by this project.
 
 Somewhat out of date documentation/manuals available at:
 https://github.com/jethrocarr/amberdms-bs/tree/master/help/manual

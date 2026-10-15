@@ -14,7 +14,7 @@ class page_output
 	var $num_contacts;
 
 
-	function page_output()
+	function __construct()
 	{
 		// required pages
 		$this->requires["javascript"][]		= "include/vendors/javascript/addedit_vendors.js";

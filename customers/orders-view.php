@@ -22,7 +22,7 @@ class page_output
 
 	
 
-	function page_output()
+	function __construct()
 	{
 		// javascript: AJAX call to load product information
 		$this->requires["javascript"][]			= "include/accounts/javascript/invoice-items-edit.js";

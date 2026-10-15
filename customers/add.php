@@ -14,7 +14,7 @@ class page_output
 	var $num_contacts;
 	var $tax_array = array();
 
-	function page_output()
+	function __construct()
 	{
 		// required pages
 		$this->requires["javascript"][]		= "include/customers/javascript/addedit_customers.js";
